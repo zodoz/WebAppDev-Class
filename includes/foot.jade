@@ -1,0 +1,14 @@
+footer
+  include footer
+
+block footerScripts
+  script(type='text/javascript',
+    src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+
+//if lt IE 7
+script(type='text/javascript',
+  src='http://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js')
+:coffeescript
+  window.attachEvent 'onload', ->
+    CFInstall.check mode:'overlay'
+</html>

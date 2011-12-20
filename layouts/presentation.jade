@@ -1,0 +1,33 @@
+extends ../H5BP
+
+- site = {};
+- site.author = 'Mike Kent';
+- site.description = 'Presentations for Spring 2011 ACM WebAppDesign Class';
+
+//- var shCSS = ["http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css"];
+//- console.log(shCSS);
+block prepend siteCSS
+  link(rel='stylesheet', href='css/deck/deck.core.css')
+  link(rel='stylesheet', href='css/deck/horizontal-slide.css')
+  link(rel='stylesheet', href='http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css')
+
+mixin shBrush(brushes)
+  for brush in brushes
+    script(type='text/javascript',
+      src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrush#{brush}.js')
+block siteJS
+  script(type='text/javascript',
+    src='http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js')
+
+block content
+  div.deck-container
+    block slides
+
+block append footerScripts
+  script(type='text/javascript', src='js/libs/deck.core.js')
+  :coffeescript
+    $ ->
+      $.deck '.slide'
+      SyntaxHighlighter.defaults.toolbar = false
+      SyntaxHighlighter.defaults.gutter = false
+      SyntaxHighlighter.all()

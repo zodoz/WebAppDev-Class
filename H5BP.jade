@@ -1,0 +1,63 @@
+include config
+!!! 5
+//if lt IE 7
+  html(class='no-js ie6 oldie', lang='en')
+//if lt IE 7
+  html(class='no-js ie7 oldie', lang='en')
+//if lt IE 8
+  html(class='no-js ie8 oldie', lang='en')
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+
+  title bla #{page.title}
+
+  meta(name='description', content='#{site.description}')
+  meta(name='author', content='#{site.author}')
+
+  meta(name='viewport', content='width=device-width,initial-scale=1')
+
+  link(rel='stylesheet', href='css/style.css')
+  block siteCSS
+    link(rel='stylesheet', href='css/site.css')
+
+  mixin headerCSS(csses)
+    for css in csses
+      link(rel='stylesheet', href='#{css}')
+
+  mixin headerJS(jses)
+    for js in jses
+      script(type='text/javascript', src='#{js}')
+
+  block siteCSS
+
+  block siteJS
+
+  //- modernizr
+  script(type='text/javascript', src='js/libs/modernizr-2.0.6.min.js')
+body
+  div#container
+    header
+      include includes/header
+
+    div#main(role='main')
+      block content
+
+    footer
+      include includes/footer
+
+  script(type='text/javascript',
+    src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+  :coffeescript
+    window.jQuery || document.write '<script src="js/libs/jquery-1.6.2.min.js"><\\\/script>'
+  block footerScripts
+
+//if lt IE 7
+  script(type='text/javascript',
+    src='http://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js')
+  :coffeescript
+    window.attachEvent 'onload', ->
+      CFInstall.check mode:'overlay'
+</html>

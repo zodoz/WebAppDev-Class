@@ -1,0 +1,41 @@
+!!! 5
+//if lt IE 7
+  html(class='no-js ie6 oldie', lang='en')
+//if lt IE 7
+  html(class='no-js ie7 oldie', lang='en')
+//if lt IE 8
+  html(class='no-js ie8 oldie', lang='en')
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+
+  title Spring 2012 ACM WebAppDev Class
+
+  meta(name='description', content='Presentations for the Spring 2012 ACM WebAppDev Class')
+  meta(name='author', content='Mike Kent')
+
+  meta(name='viewport', content='width=device-width,initial-scale=1')
+
+  link(rel='stylesheet', href='css/style.css')
+  link(rel='stylesheet', href='css/deck/deck.core.css')
+  link(rel='stylesheet', href='css/deck/fade.css')
+  link(rel='stylesheet', href='css/site.css')
+
+  //- Syntax Highlighter
+  link(rel='stylesheet',
+    href='http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css')
+  script(type='text/javascript',
+    src='http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js')
+  mixin brush(brush)
+    script(type='text/javascript',
+    src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrush#{brush}.js')
+  block brushes
+
+  //- modernizr
+  script(type='text/javascript', src='js/libs/modernizr-2.0.6.min.js')
+body
+  div#container
+    header
+      include header

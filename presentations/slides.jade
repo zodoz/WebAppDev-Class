@@ -1,0 +1,20 @@
+extends ../layouts/presentation
+
+- page = {};
+- page.title = 'Slides';
+
+block append siteJS
+  - var brushes = ['Css'];
+  for brush in brushes
+    script(type='text/javascript',
+      src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrush#{brush}.js')
+  
+
+block slides
+  section.slide
+    p This is a paragraph
+    ul
+      li.slide one
+      li.slide two
+      li.slide three
+

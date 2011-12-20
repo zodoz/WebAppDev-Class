@@ -1,0 +1,127 @@
+extends ../layouts/presentation
+
+- page = {};
+- page.title = 'Slides';
+
+block append siteJS
+  - var brushes = ['Xml'];
+  for brush in brushes
+    script(type='text/javascript',
+      src='http://alexgorbatchev.com/pub/sh/current/scripts/shBrush#{brush}.js')
+  
+block slides
+  section.slide
+    h1 HTML
+    h2 HyperText Markup Language
+    h3 h3
+    h4 h4
+    h5 h5
+    h6 h6
+  section.slide
+    h2 Features
+    ul
+      li
+        pre(class="brush: html")= "<Tag> </based>"
+      li
+        pre(class="brush: html")= "<!-- comment -->"
+  section.slide
+    h2 Basic Structure
+    pre(class="brush: html").
+      <html>
+        <head>
+          <!-- js, css, title, \n      metadata -->
+        </head>
+        <body>
+          <!-- the displayable \n      page itself -->
+        </body>
+      </html>
+  section.slide
+    h2 Basic content
+    ul
+      li p
+      li a
+  section.slide
+    h2 Font Matter
+    ul
+      li bold &lt;b&gt;, &lt;strong&gt;
+      li itialic &lt;i&gt;, &lt;em&gt;
+      li underline &lt;u&gt;
+  section.slide
+    h2 Header Tags
+    ul
+      li H1
+      li H2
+      li H3
+      li H4
+      li H5
+      li H6
+  section.slide
+    h2 Tag Attributes
+    ul
+      li `class` - classes this element belongs to.
+      li `width` - 
+  section.slide
+    h2 Anchors and Links
+    ul
+      li &lt;a name="section"&gt; - a named section of the page
+      li &lt;a href="url"&gt;
+        ul
+          li http:\/\/url - go to an absolute url
+          li url - go to a relative url
+          li #section - go to an anchor on the current page
+          li url#section - got an anchor at url
+      li &lt;a target="_self"&gt;
+  section.slide
+    h2 Lists
+    ul
+      li Ordered Lists
+        pre(class="brush: html").
+          <ol>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+          </ol>
+      li Unordered Lists
+        pre(class="brush: html").
+          <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+          </ul>
+  section.slide
+    h2 Lists Continued
+    ul
+      li Definition Lists
+        pre(class="brush: html").
+          <dl>
+            <dt>Definition Term</dt>
+            <dd>Definition Description</dd>
+            <dt>Another Definition</dt>
+            <dd>The description of the term.</dd>
+          </dl>
+  section.slide
+    h2 Tables
+    h3 Tags
+    ul
+      li &lt;table&gt; - table tag
+      li &lt;th&gt; - table head
+      li &lt;tr&gt; - table row
+      li &lt;td&gt; - table data (individual table cell)
+  section.slide
+    h2 Tables Continued
+    h3 Table Structure
+    pre(class="brush: html").
+      <table>
+        <th> <!-- This is optional -->
+          <td>Column 1</td>
+          <td>Column 2</td>
+        </th>
+        <tr>
+          <td>Row 1, Column 1</td>
+          <td>Row 1, Column 2</td>
+        </tr>
+        <tr>
+          <td>Row 2, Column 1</td>
+          <td>Row 2, Column 2</td>
+        </tr>
+      </table>
